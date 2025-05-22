@@ -1,0 +1,97 @@
+
+
+@font-face {
+  font-family: 'Furore';
+  src: url('/fonts/Furore.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.layout {
+  max-width: 500px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  color: white;
+  font-family: sans-serif;
+}
+
+.layout-header {
+  padding: 24px;
+  border-bottom: 1px solid #FFF;
+
+  h1{
+    display: flex;
+    color: #FFF;
+    font-family: Furore;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.layout-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.layout-footer {
+  border-top: 1px solid #FFF;
+  background: #181818;
+  display: flex;
+  height: 80px;
+  padding: 16px 24px 17px 24px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.layout-footer a {
+flex: 1;
+  width: 100%;
+  height: 100%;
+  &:first-child{
+    display: flex;
+    height: 47px;
+    padding: 8px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    background: #FFF;
+    color: #181818;
+    font-family: Furore;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &:last-child{
+    display: flex;
+    width: 186px;
+    height: 47px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    border: 1px solid #FFF;
+    color: #FFF;
+    font-family: Furore;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.layout-footer a.active {
+  color: white;
+}

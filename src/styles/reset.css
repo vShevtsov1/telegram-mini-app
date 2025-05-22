@@ -1,0 +1,51 @@
+/* reset.css */
+
+/* Убираем отступы и поля у всех элементов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    justify-content: center;
+    display: flex;
+    background: #141414;
+}
+
+/* Убираем стили списков */
+ul, ol {
+    list-style: none;
+}
+
+/* Убираем подчеркивание у ссылок и наследуем цвет */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Базовые стили для body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Убираем стили для кнопок и инпутов */
+button, input, textarea, select {
+    font: inherit;
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Убираем бордеры у картинок */
+img {
+    max-width: 100%;
+    display: block;
+    border-style: none;
+}
