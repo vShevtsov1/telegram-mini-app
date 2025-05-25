@@ -13,38 +13,38 @@ import OrderDetails from "./screens/OrderDetails/index.jsx";
 
 function App() {
 
-    const [user, setUser] = useState(null);
-    
-    useEffect(() => {
-        const tg = window.Telegram?.WebApp;
-    
-        if (!tg) {
-            console.warn("Telegram WebApp not available");
-            return;
-        }
-    
-        const initData = tg.initData;
-    
-        axios.post("https://server.traff-baza.online/telegram/verify", null, {
-            params: {
-                initData: initData
-            }
-        }).then(res => {
-            if (res.data.status === "ok") {
-                const userData = JSON.parse(res.data.user);
-                setUser(userData);
-                console.log("✅ Пользователь прошёл проверку:", userData);
-            } else {
-                console.error("❌ Ошибка проверки:", res.data.message);
-            }
-        }).catch(err => {
-            console.error("⚠️ Ошибка запроса:", err);
-        });
-    }, []);
-
-    if(user===null){
-        return null;
-    }
+    // const [user, setUser] = useState(null);
+    //
+    // useEffect(() => {
+    //     const tg = window.Telegram?.WebApp;
+    //
+    //     if (!tg) {
+    //         console.warn("Telegram WebApp not available");
+    //         return;
+    //     }
+    //
+    //     const initData = tg.initData;
+    //
+    //     axios.post("https://server.traff-baza.online/telegram/verify", null, {
+    //         params: {
+    //             initData: initData
+    //         }
+    //     }).then(res => {
+    //         if (res.data.status === "ok") {
+    //             const userData = JSON.parse(res.data.user);
+    //             setUser(userData);
+    //             console.log("✅ Пользователь прошёл проверку:", userData);
+    //         } else {
+    //             console.error("❌ Ошибка проверки:", res.data.message);
+    //         }
+    //     }).catch(err => {
+    //         console.error("⚠️ Ошибка запроса:", err);
+    //     });
+    // }, []);
+    //
+    // if(user===null){
+    //     return null;
+    // }
   return (
       <Layout>
           <Routes>
