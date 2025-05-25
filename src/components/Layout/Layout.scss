@@ -11,7 +11,7 @@
 .layout {
   max-width: 500px;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   background: #000;
@@ -39,7 +39,6 @@
 .layout-content {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
 }
 
 .layout-footer {
