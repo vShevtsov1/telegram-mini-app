@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProductCard.scss';
 
-const ProductCard = ({ image, title, description, price }) => {
+const ProductCard = ({ image, title, description, price, id }) => {
+    const [inCart, setInCart] = useState(false);
+
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+        if (cart[id]) {
+            setInCart(true);
+        }
+    }, [id]);
+
+    const handleCartToggle = () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+        if (cart[id]) {
+            delete cart[id];
+            setInCart(false);
+        } else {
+            cart[id] = { quantity: 1 };
+            setInCart(true);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+    };
+
     return (
         <div className="product-card">
             <div className="product-card__image">
-                {image && <img src={image} alt={title} />}
+                {image && <img src={`data:image/png;base64,${image}`} alt={title} />}
             </div>
             <div className="product-card__content">
                 <div>
@@ -14,7 +37,9 @@ const ProductCard = ({ image, title, description, price }) => {
                 </div>
                 <div className="product-card__bottom">
                     <span className="product-card__price">${price || '0.00'}</span>
-                    <button className="product-card__button">+ В КОШИК</button>
+                    <button className="product-card__button" onClick={handleCartToggle}>
+                        {inCart ? '− Видалити' : '+ В КОШИК'}
+                    </button>
                 </div>
             </div>
         </div>

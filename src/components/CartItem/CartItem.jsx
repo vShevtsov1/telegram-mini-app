@@ -4,9 +4,9 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
     return (
         <div className="cart-item">
             <div className="product-data">
-                <img src={item.image} alt=""/>
+                <img src={`data:image/png;base64,${item.image}`} alt="" />
                 <div className="product_overview">
-                    <p>{item.title}</p>
+                    <p>{item.name}</p>
                     <span>${item.price}</span>
                 </div>
             </div>

@@ -1,0 +1,127 @@
+.order-details {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-svg {
+  display: none;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: 150px;
+  height: auto;
+  opacity: 0.3;
+
+  &.bg-1 {
+    top: 9%;
+    right: 0px;
+  }
+
+  &.bg-2 {
+    top: 30%;
+    left: 0;
+  }
+
+  &.bg-3 {
+    bottom: 25%;
+    right: 10%;
+  }
+}
+.order-details-content{
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1{
+      color: #FFF;
+      font-family: Furore;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    img{
+      width: 170px;
+    }
+  }
+.products{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .product{
+    padding: 15px;
+    border: 1px solid #FFF;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .product-data{
+      display: flex;
+      gap: 15px;
+      align-items: flex-end;
+      img{
+        width: 80px;
+        height: 84px;
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+      h1{
+        margin: unset;
+        padding: unset;
+        color: #FFF;
+        font-family: Onest;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+    .credentials{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .credential{
+        display: inline-flex;
+        padding: 14px ;
+        align-items: flex-start;
+        background: #FFF;
+        flex-direction: column;
+        gap: 10px;
+        p{
+          color: #181818;
+          font-family: Furore;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          span{
+            color: #181818;
+            font-family: Onest;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+        }
+      }
+
+    }
+  }
+}
+}

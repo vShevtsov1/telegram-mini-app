@@ -6,6 +6,7 @@
 }
 
 .bg-svg {
+  display: none;
   position: absolute;
   z-index: -1;
   pointer-events: none;
@@ -38,6 +39,7 @@
 }
 
 .referal-content{
+
   padding: 24px;
   .header{
     display: flex;
@@ -80,6 +82,7 @@
     .buttons{
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       gap: 14px;
       button:first-child{
         cursor: pointer;

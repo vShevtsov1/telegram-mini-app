@@ -1,4 +1,4 @@
-.categories-page {
+.myorders-page {
   position: relative;
   height: 100%;
   z-index: 1;
@@ -29,7 +29,7 @@
     right: 10%;
   }
 }
-.category-content{
+.myorders-content{
   height: 100%;
   width: 100%;
   padding: 24px;
@@ -52,35 +52,35 @@
       width: 170px;
     }
   }
-  .search-bar{
-    display: inline-flex;
-    padding: 12px 180px 12px 15px;
-    align-items: center;
-    gap: 16px;
-    border: 1px solid #FFF;
-    background: #000;
-    input{
-      background: none;
-      outline: none;
-      color: #C4C4C4;
-      font-family: Onest;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-  }
-  .categories{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 18px;
-    grid-row-gap: 24px;
-    overflow: auto;
 
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
+  .orders{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .order{
+      padding: 15px;
+      border: 1px solid #FFF;
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      h1{
+        color: #FFF;
+        font-family: Onest;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .price{
+        color: #FFF;
+        font-family: Onest;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
     }
   }
+
 }

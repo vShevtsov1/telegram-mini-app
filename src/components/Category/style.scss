@@ -4,6 +4,9 @@
   align-items: flex-start;
   gap: 14px;
   cursor: pointer;
+  img{
+    object-fit: cover;
+  }
   p{
     color: #FFF;
     font-family: Onest;

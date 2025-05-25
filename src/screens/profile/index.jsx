@@ -1,6 +1,38 @@
 import "./style.scss"
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const Profile = () => {
+    const [user, setUser] = useState(null);
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        const tg = window.Telegram?.WebApp;
+
+        if (!tg) {
+            console.warn("Telegram WebApp not available");
+            return;
+        }
+
+        const initData = tg.initData;
+
+        axios.post("https://server.traff-baza.online/telegram/verify", null, {
+            params: {
+                initData: initData
+            }
+        }).then(res => {
+            if (res.data.status === "ok") {
+                const userData = res.data.user;
+                setUser(userData);
+
+            } else {
+                console.error("❌ Ошибка проверки:", res.data.message);
+            }
+        }).catch(err => {
+            console.error("⚠️ Ошибка запроса:", err);
+        });
+    }, []);
 
     const options = [
         {
@@ -20,6 +52,7 @@ const Profile = () => {
             ),
             label: "Замовлення",
             value: null,
+            link: "/orders"
         },
         {
             icon: (
@@ -49,32 +82,37 @@ const Profile = () => {
             ),
             label: "Реферальне посилання",
             value: null,
+            link:"/referal"
         },
 
     ];
 
+    if(user === null){
+        return null
+    }
     return (<div className={"profile-page"}>
     <img src="/bg/Profile/1.svg" alt="bg1" className="bg-svg bg-1" />
     <img src="/bg/Profile/2.svg" alt="bg2" className="bg-svg bg-2" />
     <img src="/bg/Profile/3.svg" alt="bg3" className="bg-svg bg-3" />
 
     <div className="profile-content">
+
         <div className="header">
             <h1 className="title">Профіль</h1>
             <img src="/bg/Category/4.svg" alt="bg1"  />
         </div>
         <div className="user-data">
-            <h1>Ім’я користувача</h1>
-            <p>@user_nickname</p>
+            <h1>{user.first_name} {user.last_name}</h1>
+            <p>@{user.username}</p>
         </div>
         <div className="menu-options">
             {options.map((opt, idx) => (
-                <div className="options" key={idx}>
+                <div onClick={()=>navigate(opt.link)} className="options" key={idx}>
                     <div className="data">
                         {opt.icon}
                         <p>{opt.label}</p>
                     </div>
-                    {opt.value && <div className="add_data">{opt.value}</div>}
+                    {opt.value && <div className="add_data">$ {user.balance}</div>}
                 </div>
             ))}
         </div>

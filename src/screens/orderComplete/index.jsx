@@ -1,6 +1,8 @@
 import "./style.scss"
+import {useNavigate} from "react-router-dom";
 
 const OrderComplete = () => {
+    const navigate = useNavigate();
 
     return(
         <div className={"complete-page"}>
@@ -11,7 +13,7 @@ const OrderComplete = () => {
                 <img src="/bg/complete/2.svg" alt=""/>
                 <h1>Дякуємо за покупку!</h1>
                 <div className="buttons">
-                    <button>на головну</button>
+                    <button onClick={() => navigate("/")}>на головну</button>
                     <button>Переглянути мої покупки</button>
                 </div>
                 <img src="/bg/complete/3.svg" alt=""/>
