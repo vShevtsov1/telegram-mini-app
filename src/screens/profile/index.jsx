@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 const Profile = () => {
     const [user, setUser] = useState(null);
-
+    const [userData,setUserData] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {
         const tg = window.Telegram?.WebApp;
@@ -16,6 +16,7 @@ const Profile = () => {
         }
 
         const initData = tg.initData;
+        setUserData(initData);
 
         axios.post("https://server.traff-baza.online/telegram/verify", null, {
             params: {
@@ -96,14 +97,14 @@ const Profile = () => {
     <img src="/bg/Profile/3.svg" alt="bg3" className="bg-svg bg-3" />
 
     <div className="profile-content">
-
+        {userData}
         <div className="header">
             <h1 className="title">Профіль</h1>
             <img src="/bg/Category/4.svg" alt="bg1"  />
         </div>
         <div className="user-data">
-            <h1>{user.first_name} {user.last_name}</h1>
-            <p>@{user.username}</p>
+            <h1>{user.first_name||""} {user.last_name||""}</h1>
+            <p>@{user.username||""}</p>
         </div>
         <div className="menu-options">
             {options.map((opt, idx) => (
@@ -112,7 +113,7 @@ const Profile = () => {
                         {opt.icon}
                         <p>{opt.label}</p>
                     </div>
-                    {opt.value && <div className="add_data">$ {user.balance}</div>}
+                    {opt.value && <div className="add_data">$ {user.balance||0}</div>}
                 </div>
             ))}
         </div>
