@@ -89,7 +89,7 @@ const Profile = () => {
     ];
 
     if(user === null){
-        return null
+        return userData
     }
     return (<div className={"profile-page"}>
     <img src="/bg/Profile/1.svg" alt="bg1" className="bg-svg bg-1" />
